@@ -1,0 +1,104 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+h2,
+b {
+    align-self: center;
+}
+
+body {
+    font-size: 100%;
+    background-color: white;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+}
+
+header nav a {
+    padding: 1em;
+    margin: 0em 0.5em;
+    cursor: pointer;
+    border-radius: 0.5em;
+    transition: 0.5s all;
+    font-size: 130%;
+}
+
+header nav a.active {
+    background-color: pink;
+}
+
+header nav a:hover {
+    background-color: red;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+    padding: 1em;
+    width: 300px;
+    height: 300px;
+    /* background-color: lightslategray; */
+    border-radius: 0.2em;
+    border: black 3px solid;
+}
+
+.amogus-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Amogus {
+    width: 325px;
+}
+
+.product,
+.start,
+.about {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    height: auto;
+    /* width: 50%; */
+    /* border: 3px solid black; */
+    border-radius: 0.2em;
+    padding: 1em;
+    margin: 10px auto;
+}
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+form input{
+    width: auto;
+    border: 2px solid black;
+    border-radius: 0.2em;
+}
+
+form button {
+    align-self: center;
+    margin-top: 5px;
+    width: 50%;
+}
+
+.text-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
