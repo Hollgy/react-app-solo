@@ -1,4 +1,5 @@
 import { Outlet, Link, NavLink } from "react-router-dom"
+import myImage from "/public/shopping-cart.png"
 
 const Root = () => (
     <div>
@@ -7,7 +8,9 @@ const Root = () => (
                 <NavLink to="/"> Start </NavLink>
                 <NavLink to="/Products"> Products </NavLink>
                 <NavLink to="/Admin" >Admin</NavLink>
-                <NavLink to="/Cart">Cart</NavLink>
+                <aside>
+                    <NavLink to="/Cart"><img src="/public/shopping-cart.png" alt="My Image" className="cart-image" /></NavLink>
+                </aside>
                 {/* <Navlink to="/AdminPage"></Navlink> */}
             </nav>
         </header>

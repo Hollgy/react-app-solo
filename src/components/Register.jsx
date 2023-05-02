@@ -3,7 +3,6 @@ const Register = () => {
     // const [pass, setPass] = useState('')
     // const [name, setName] = useState('')
 
-
     const handleSubmit = () => {
         e.preventDefault()
         console.log(email);
@@ -11,6 +10,7 @@ const Register = () => {
     return (
         <section>
             <div>
+                <h2>Register a new account</h2>
                 <form>
                     <div className="form-wrapper">
                         <label htmlFor="name">Enter your name</label>

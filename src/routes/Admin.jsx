@@ -19,6 +19,7 @@ const Admin = () => {
             <div>
                 <form onSubmit={handleSubmit} >
                     <div className="form-wrapper">
+                        <h2>Log in</h2>
                         <label htmlFor="email"> Email</label>
                         <input type="email" placeholder="Email" id="email" name="email" />
                         <label htmlFor="password"> Password</label>

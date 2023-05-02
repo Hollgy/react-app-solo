@@ -36,3 +36,8 @@ async function uploadProduct() {
 	}
 	return false  // if you get false, use console.log to inspect the object
 }
+
+const ProductData = [{"name":"Water-Gun","descpription":"Fires cooling streams of water at unsuspecting foes.","Picutre":'insert web URL here',"shopid":shopId}
+]
+
+export default ProductData

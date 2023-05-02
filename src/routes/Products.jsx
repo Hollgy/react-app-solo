@@ -1,4 +1,6 @@
+import data from "../data/Api"
 
+const productData = data
 
 const Products = () => (
     <section>

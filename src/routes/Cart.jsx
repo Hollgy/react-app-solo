@@ -5,7 +5,7 @@ const Cart = () => (
 
     <section>
         <div className="wrapper">
-            <p>Hora med blod</p>
+            <p>Awooga</p>
         </div>
     </section>
 
