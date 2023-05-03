@@ -7,7 +7,7 @@ const AdminPage = () => (
         <div className="wrapper">
             <AdminProducts />
             <AdminUsers />
-            <Register />
+            {/* <Register /> */}
         </div>
     </section>
 )
