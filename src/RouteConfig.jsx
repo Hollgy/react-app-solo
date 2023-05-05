@@ -2,7 +2,7 @@ import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Root from './routes/root.jsx';
 import Start from './routes/Start.jsx'
 import Admin from './routes/Admin.jsx';
-import Products from './routes/Products.jsx';
+import ProductGrid from './routes/ProductGrid.jsx';
 import Cart from './routes/Cart.jsx';
 import ErrorPage from './routes/ErrorPage.jsx';
 import AdminPage from './routes/AdminPage.jsx';
@@ -21,8 +21,8 @@ const router = createHashRouter([
                 element: <Start />
             },
             {
-                path: 'Products',
-                element: <Products />
+                path: 'ProductGrid',
+                element: <ProductGrid />
             },
             {
                 path: 'Admin',

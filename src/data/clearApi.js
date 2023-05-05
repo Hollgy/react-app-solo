@@ -26,4 +26,4 @@ async function getProductIds() {
     return data.map(product => product.id)  // [ id1, id2, ... ]
 }
 
-// deleteAll()
+deleteAll()

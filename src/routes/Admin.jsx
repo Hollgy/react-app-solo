@@ -4,6 +4,10 @@ import AdminPage from "./AdminPage"
 import Register from "../components/Register"
 import ReactDOM from "react-dom";
 
+
+//// TODO FIXA SÅ BARA ETT GENERELLT MEDDELANDE KASTAS TILLBAKA NÄR LOGIN INTE FUNKAR; ISTÄLLET FÖR ATT SPECIFICERA PROBLEMET FÖR NÅGON SOM VILL KOMMA IN
+
+
 const Admin = () => {
 
     const [errorMessages, setErrorMessages] = useState({});
@@ -13,8 +17,8 @@ const Admin = () => {
     // User Login info
     const database = [
         {
-            username: "user",
-            password: "admin"
+            username: "admin",
+            password: "password"
         }
     ];
 
@@ -24,24 +28,23 @@ const Admin = () => {
     };
 
     const handleSubmit = (event) => {
-        //Prevent page reload
         event.preventDefault();
 
-        var { uname, pass } = document.forms[0];
+        const { uname, pass } = document.forms[0];
 
-        // Find user login info
+        // hittar login info
         const userData = database.find((user) => user.username === uname.value);
 
-        // Compare user info
+        // Jämnför användare
         if (userData) {
             if (userData.password !== pass.value) {
-                // Invalid password
+                // Fel Lösen
                 setErrorMessages({ name: "pass", message: errors.pass });
             } else {
                 setIsSubmitted(true);
             }
         } else {
-            // Username not found
+            // User finns ej
             setErrorMessages({ name: "uname", message: errors.uname });
         }
     };
@@ -50,13 +53,11 @@ const Admin = () => {
         setIsLoginMode(!isLoginMode);
     };
 
-    // Generate JSX code for error message
     const renderErrorMessage = (name) =>
         name === errorMessages.name && (
             <div className="error">{errorMessages.message}</div>
         );
 
-    // JSX code for login form
     const renderLoginForm = (
         <div className="form-wrapper">
             <form >
@@ -80,7 +81,7 @@ const Admin = () => {
         </div>
     );
 
-    // JSX code for registration form
+    // toggle för om login eller register visas
     const renderRegistrationForm = (
         <div className="form-wrapper">
             <Register />

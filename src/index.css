@@ -125,3 +125,24 @@ aside {
 button {
     cursor: pointer;
 }
+
+.product-image{
+    width: 250px;
+}
+
+.product-wrapper{
+}
+
+ul{
+    margin: 5px auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr) ;
+    gap: 15px;
+    list-style-type: none;
+}
+li{
+    text-align: center;
+    border: solid 1px black;
+    border-radius: 0.6em;
+    background-color: lightblue;
+}

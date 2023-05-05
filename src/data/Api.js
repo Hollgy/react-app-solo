@@ -16,7 +16,7 @@ async function addProduct(oneProduct) {
 
 async function addAllTheProducts() {
     const products = productList.map(product => ({
-        picture: product.img,
+        picture: product.picture,
         name: product.name,
         description: product.description,
         price: product.price,
