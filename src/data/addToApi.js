@@ -33,4 +33,4 @@ async function addAllTheProducts() {
 
 addAllTheProducts();
 
-export default productList;
+export { addAllTheProducts };

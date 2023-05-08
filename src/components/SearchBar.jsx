@@ -1,16 +1,17 @@
 import { useState } from "react"
 import { SlMagnifier } from "react-icons/sl"
-import productList from "../data/data"
+import { productState } from "../atoms/productAtom"
+import { useRecoilState } from "recoil"
 
 const SearchBar = ({ }) => {
+    const [product, setProduct] = useRecoilState(productState)
     const [searchInput, setSearchInput] = useState("")
 
     const handleChange = (e) => {
         e.preventDefault()
-        setSearchInput()
         setSearchInput(e.target.value.toLowerCase())
     }
-    const filteredProducts = productList.filter((product) => {
+    const filteredProducts = product.filter((product) => {
         return product.name.toLowerCase().match(searchInput)
     })
 
