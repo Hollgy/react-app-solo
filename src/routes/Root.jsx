@@ -11,7 +11,6 @@ const Root = () => (
                 <aside>
                     <NavLink to="/Cart"><img src="/public/shopping-cart.png" alt="My Image" className="cart-image" /></NavLink>
                 </aside>
-                {/* <Navlink to="/AdminPage"></Navlink> */}
             </nav>
         </header>
         <main>

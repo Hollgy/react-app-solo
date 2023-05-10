@@ -7,14 +7,13 @@ import Cart from './routes/Cart.jsx';
 import ErrorPage from './routes/ErrorPage.jsx';
 import Users from './components/Users.jsx';
 import Products from './components/Products.jsx';
+import ProductDetail from './components/ProductDetail.jsx';
 
 
 const router = createHashRouter([
     {
         path: '/',
-
         element: <Root />,
-
         children: [
             {
                 path: '',
@@ -35,6 +34,10 @@ const router = createHashRouter([
             {
                 path: 'Users',
                 element: <Users />
+            },
+            {
+                path: 'Product/:id',
+                element: <ProductDetail />
             },
             {
                 path: 'Products',
