@@ -6,8 +6,8 @@ const Root = () => (
         <header>
             <nav>
                 <NavLink to="/"> Start </NavLink>
-                <NavLink to="/Productgrid"> Product Grid </NavLink>
-                <NavLink to="/Admin" >Admin</NavLink>
+                <NavLink to="/Productgrid"> Produkter </NavLink>
+                <NavLink to="/Admin" >Logga in</NavLink>
                 <aside>
                     <NavLink to="/Cart"><img src="/public/shopping-cart.png" alt="My Image" className="cart-image" /></NavLink>
                 </aside>

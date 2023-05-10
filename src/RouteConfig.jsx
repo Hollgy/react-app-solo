@@ -5,8 +5,8 @@ import Admin from './routes/Admin.jsx';
 import ProductGrid from './routes/ProductGrid.jsx';
 import Cart from './routes/Cart.jsx';
 import ErrorPage from './routes/ErrorPage.jsx';
-import AdminPage from './routes/AdminPage.jsx';
-import Register from './components/Register.jsx';
+import Users from './components/Users.jsx';
+import Products from './components/Products.jsx';
 
 
 const router = createHashRouter([
@@ -29,16 +29,16 @@ const router = createHashRouter([
                 element: <Admin />
             },
             {
-                path: 'AdminPage',
-                element: <AdminPage />
-            },
-            {
                 path: 'Cart',
                 element: <Cart />
             },
             {
-                path: 'Register',
-                element: <Register />
+                path: 'Users',
+                element: <Users />
+            },
+            {
+                path: 'Products',
+                element: <Products />
             }
         ],
         errorElement: <ErrorPage />
