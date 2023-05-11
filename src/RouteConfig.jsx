@@ -2,11 +2,11 @@ import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Root from './routes/root.jsx';
 import Start from './routes/Start.jsx'
 import Admin from './routes/Admin.jsx';
-import ProductGrid from './routes/ProductGrid.jsx';
+import Products from './routes/Products.jsx';
 import Cart from './routes/Cart.jsx';
 import ErrorPage from './routes/ErrorPage.jsx';
 import Users from './components/Users.jsx';
-import Products from './components/Products.jsx';
+import AddProducts from './components/AddProducts.jsx';
 import ProductDetail from './components/ProductDetail.jsx';
 
 
@@ -20,8 +20,8 @@ const router = createHashRouter([
                 element: <Start />
             },
             {
-                path: 'ProductGrid',
-                element: <ProductGrid />
+                path: 'Products',
+                element: <Products />
             },
             {
                 path: 'Admin',
@@ -40,8 +40,8 @@ const router = createHashRouter([
                 element: <ProductDetail />
             },
             {
-                path: 'Products',
-                element: <Products />
+                path: 'AddProducts',
+                element: <AddProducts />
             }
         ],
         errorElement: <ErrorPage />

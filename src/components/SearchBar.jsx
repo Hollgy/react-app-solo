@@ -26,9 +26,11 @@ const SearchBar = () => {
         <>
             <section>
                 <div>
-                    <h2>Produkter</h2>
+                    <div className="line">
+                    <h1>Produkter</h1>
+                    </div>
                     <SlMagnifier />
-                    <input type="search" placeholder="Search for a product" onChange={handleInput} value={searchInput} />
+                    <input className="searchbar" type="search" placeholder="Search for a product" onChange={handleInput} value={searchInput} />
                     <ul>
                         {filteredProducts.length === 0 ? (
                             <p>Sorry, We dont have any products that match your search, try again...</p>

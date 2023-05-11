@@ -1,21 +1,23 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { isLoggedInState } from "../atoms/isLoggedIn";
 
 const Admin = () => {
     const [errorMessages, setErrorMessages] = useState({});
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
 
     // User Login info
     const database = [
         {
             username: "admin",
-            password: "password"
-        }
+            password: "password",
+        },
     ];
 
     const errors = {
         uname: "invalid username",
-        pass: "invalid password"
+        pass: "invalid password",
     };
 
     const unameRef = useRef(null);
@@ -27,21 +29,26 @@ const Admin = () => {
         const uname = unameRef.current.value;
         const pass = passRef.current.value;
 
-        // hittar login info
+        // Find user login info
         const userData = database.find((user) => user.username === uname);
 
-        // Jämnför användare
+        // Compare user
         if (userData) {
             if (userData.password !== pass) {
-                // Fel Lösen
+                // Incorrect password
                 setErrorMessages({ name: "pass", message: errors.pass });
             } else {
-                setIsSubmitted(true);
+                setIsLoggedIn(true);
             }
         } else {
-            // User finns ej
+            // User not found
             setErrorMessages({ name: "uname", message: errors.uname });
         }
+    };
+
+    const handleLogout = () => {
+        setIsLoggedIn(false);
+        // Add code to clear any user data from session/local storage here
     };
 
     const renderErrorMessage = (name) =>
@@ -50,7 +57,7 @@ const Admin = () => {
         );
 
     const loginForm = (
-        <div className="form-wrapper">
+        <div className="wrapper">
             <form>
                 <label>Username </label>
                 <input type="text" name="uname" ref={unameRef} required />
@@ -65,18 +72,21 @@ const Admin = () => {
         </div>
     );
 
+    const loggedInLinks = (
+        <div className="wrapper">
+            <Link to="/AddProducts">Edit Products</Link>
+            <Link to="/Users">Edit Users</Link>
+            <div>
+            <button onClick={handleLogout}>Logga Ut</button>
+            </div>
+        </div>
+    );
+
     return (
         <div className="app">
             <div className="login-form">
                 <div className="title"></div>
-                {isSubmitted ? (
-                    <div>
-                        <Link to="/Products">Edit Products</Link>
-                        <Link to="/Users">Edit Users</Link>
-                    </div>
-                ) : (
-                    loginForm
-                )}
+                {isLoggedIn ? loggedInLinks : loginForm}
             </div>
         </div>
     );
