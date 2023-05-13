@@ -1,0 +1,25 @@
+.hamburger-menu button {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: black;
+    margin-top: 8px;
+}
+
+.menu-links {
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    background-color: white;
+    padding: 1rem;
+    z-index: 1;
+    margin-top: 15px;
+}
+
+.menu-links a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}

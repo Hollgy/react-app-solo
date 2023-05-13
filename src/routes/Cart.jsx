@@ -1,6 +1,8 @@
 import { useRecoilState } from "recoil";
 import { cartState } from "../atoms/cartState";
 import { useState } from "react";
+import "../styles/products.css"
+
 
 const Cart = () => {
     const [cart, setCart] = useRecoilState(cartState);
@@ -38,7 +40,7 @@ const Cart = () => {
                     return acc;
                 }, []).map((product) => (
                     <ul key={product.id}>
-                        <li>
+                        <li className="product-card">
                             <h4>Produkter</h4>
                             <p>{product.name}</p>
                             <p>{product.price}</p>

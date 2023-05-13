@@ -74,8 +74,8 @@ const Admin = () => {
 
     const loggedInLinks = (
         <div className="wrapper">
-            <Link to="/AddProducts">Edit Products</Link>
-            <Link to="/Users">Edit Users</Link>
+            <Link to="/AddProducts">Add Products</Link>
+            <Link to="/Users">Add Users</Link>
             <div>
             <button onClick={handleLogout}>Logga Ut</button>
             </div>

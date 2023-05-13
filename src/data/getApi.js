@@ -6,4 +6,4 @@ async function getProducts() {
     const data = await response.json()
     console.log("svar från api ", data);
 }
-getProducts()
+// getProducts()

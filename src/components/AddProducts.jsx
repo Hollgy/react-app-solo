@@ -13,6 +13,8 @@ const AddProducts = () => {
     const [description, setDescription] = useState("");
     const [picture, setPicture] = useState("");
 
+
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         const newProduct = {
@@ -29,7 +31,6 @@ const AddProducts = () => {
         setDescription("");
         setPrice("");
         setPicture("");
-        // setShowForm(false);
     };
 
     const handleName = (e) => {
