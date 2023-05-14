@@ -5,17 +5,22 @@ import { productState } from "../atoms/productAtom"
 import { cartState } from "../atoms/cartState"
 import { Link } from "react-router-dom"
 import { isLoggedInState } from "../atoms/isLoggedIn"
+import productList from "../data/data"
+
+
+
 const SearchBar = () => {
-    const [product, setProduct] = useRecoilState(productState)
+    const [products, setProducts] = useRecoilState(productState)
     const [searchInput, setSearchInput] = useState("")
     const [cart, setCart] = useRecoilState(cartState)
     const isLoggedIn = useRecoilValue(isLoggedInState);
+    const [sortedProducts, setSortedProducts] = useState()
 
     const handleInput = (e) => {
         e.preventDefault()
         setSearchInput(e.target.value.toLowerCase())
     }
-    const filteredProducts = product.filter((product) => {
+    const filteredProducts = products.filter((product) => {
         return product.name.toLowerCase().match(searchInput)
     })
 
@@ -24,8 +29,9 @@ const SearchBar = () => {
     };
 
     const handleRemovalOfProduct = (product) => {
-        setProduct((prevProducts) => prevProducts.filter((p) => p.id !== product.id));
-    };
+        const updatedProducts = products.filter((p) => p.id !== product.id);
+        setProducts(updatedProducts)
+    }
 
 
     return (
@@ -41,7 +47,7 @@ const SearchBar = () => {
                         {filteredProducts.length === 0 ? (
                             <p>Sorry, We dont have any products that match your search, try again...</p>
                         ) : (
-                            filteredProducts.map((product) => {
+                            products.map((product) => {
                                 return (
                                     <li className="product-card" key={product.id} >
                                         <Link to={`/product/${product.id}`}>
