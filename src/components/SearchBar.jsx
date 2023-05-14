@@ -11,6 +11,8 @@ const SearchBar = () => {
     const [searchInput, setSearchInput] = useState("")
     const [cart, setCart] = useRecoilState(cartState)
     const isLoggedIn = useRecoilValue(isLoggedInState)
+    const [cartMessage, setCartMessage] = useState("");
+
 
     const handleInput = (e) => {
         e.preventDefault()
@@ -23,18 +25,22 @@ const SearchBar = () => {
     })
 
     const handleAdditionToCart = (product) => {
-        setCart([...cart, product])
+        setCart([...cart, product]);
+        setCartMessage("Din vara har lagts till i varukorgen");
+
+
+        setTimeout(() => {
+            setCartMessage("");
+        }, 500);
     }
+
 
     const handleRemovalOfProduct = (product) => {
         const updatedProducts = products.filter((p) => p.id !== product.id)
         setProducts(updatedProducts)
-        return(
-            <p>Adderad till varukorgen</p>
-        )
     }
 
-    
+
 
     return (
         <>
@@ -42,11 +48,12 @@ const SearchBar = () => {
                 <div >
                     <div className="product-header">
                         <h1>Produkter</h1>
-                    <input className="searchbar" type="search" placeholder="Search for a product" onChange={handleInput} value={searchInput} />
+                    <p>{cartMessage}</p>
+                        <input className="searchbar" type="search" placeholder="Search for a product" onChange={handleInput} value={searchInput} />
                     </div>
                     <ul className="product-card-wrapper">
                         {searchInput && filteredProducts.length === 0 ? (
-                            <p>Sorry, We don't have any products that match your search, try again...</p>
+                            <p>Vi ber om ursäkt, Vi har ingen produkt som matchar din sökning, försök igen...</p>
                         ) : (
                             <>
                                 {searchInput ? (
@@ -54,13 +61,12 @@ const SearchBar = () => {
                                         <li className="product-card" key={product.id} >
                                             <Link to={`/product/${product.id}`}>
                                                 <p>{product.name}</p>
-                                                <p>{product.price}kr</p>
-                                                {/* <p>{product.description}</p> */}
+                                                <img className="product-image" src={product.picture} />
                                             </Link>
-                                            <img className="product-image" src={product.picture} />
-                                            <button onClick={() => handleAdditionToCart(product)}>Add to cart</button>
+                                            <p>{product.price}kr</p>
+                                            <button onClick={() => handleAdditionToCart(product)}>Lägg till i kundvagnen</button>
                                             {isLoggedIn && (
-                                                <button onClick={() => handleRemovalOfProduct(product)}>Remove Product</button>
+                                                <button onClick={() => handleRemovalOfProduct(product)}>Ta bort produkt</button>
                                             )}
                                         </li>
                                     ))
@@ -69,13 +75,12 @@ const SearchBar = () => {
                                         <li className="product-card" key={product.id} >
                                             <Link to={`/product/${product.id}`}>
                                                 <p>{product.name}</p>
-                                                <p>{product.price}kr</p>
-                                                {/* <p>{product.description}</p> */}
+                                                <img className="product-image" src={product.picture} />
                                             </Link>
-                                            <img className="product-image" src={product.picture} />
-                                            <button onClick={() => handleAdditionToCart(product)}>Add to cart</button>
+                                            <p>{product.price}kr</p>
+                                            <button onClick={() => handleAdditionToCart(product)}>Lägg till i kundvagnen</button>
                                             {isLoggedIn && (
-                                                <button onClick={() => handleRemovalOfProduct(product)}>Remove Product</button>
+                                                <button onClick={() => handleRemovalOfProduct(product)}>Ta bort produkt</button>
                                             )}
                                         </li>
                                     ))

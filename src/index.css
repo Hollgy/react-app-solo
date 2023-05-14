@@ -1,11 +1,12 @@
 * {
     font-family: Pathway Extreme;
     font-weight: 600;
+    /* list-style-type: none */
 }
 
 a {
     text-decoration: none;
-    transition: transform 0.5s ;
+    transition: transform 0.5s;
 
 }
 
@@ -24,6 +25,7 @@ b {
 body {
     font-size: 100%;
     background-color: #91C4E4;
+    
 }
 
 header nav {
@@ -49,8 +51,8 @@ header nav a:hover {
 }
 
 .wrapper {
-	display: grid;
-	grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: 1fr;
     text-align: center;
     margin: 1em auto;
     padding: 1em;
@@ -59,6 +61,10 @@ header nav a:hover {
     border-radius: 10px;
     border: black 3px solid;
     box-shadow: 5px 5px;
+}
+
+.wrapper button {
+    margin: 10px;
 }
 
 
@@ -84,27 +90,6 @@ form {
     padding: 1em;
     margin: 10px auto;
 }
-/* 
-.form-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 3px solid black;
-    width: 50%;
-} */
-
-/* .text-wrapper {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-} */
-/* 
-.button-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    width: 125px;
-    margin-top: 10px;
-} */
 
 aside {
     display: flex;
@@ -112,8 +97,6 @@ aside {
     margin: 0;
 
 }
-
-
 
 .login-form {
     display: flex;
@@ -127,10 +110,6 @@ button {
     border-radius: 5px;
 }
 
-
-/* li:hover {
-    transform: translateY(-10px);
-} */
 
 input {
     border: black 3px solid;
@@ -170,17 +149,31 @@ input {
 
 /* HAMBURGAR MENYN  SLUT */
 
-
-
 .invisible {
     display: none;
 }
-
 
 .carticon {
     font-size: 150%;
     transition: transform 200ms;
 }
+
 .carticon:hover {
     transform: translateY(-3px);
+}
+
+@media (max-width: 750px) {
+    .start-image {
+        width: 555px;
+    }
+}
+@media (max-width: 650px) {
+    .start-image {
+        width: 355px;
+    }
+}
+@media (max-width: 450px) {
+    .start-image {
+        width: 255px;
+    }
 }

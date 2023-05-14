@@ -16,8 +16,8 @@ const Admin = () => {
     ];
 
     const errors = {
-        uname: "Wrong Credentials ",
-        pass: "Wrong Credentials",
+        uname: "Fel användarinfo ",
+        pass: "Fel användarinfo",
     };
 
     const unameRef = useRef(null);
@@ -59,10 +59,10 @@ const Admin = () => {
     const loginForm = (
         <div className="wrapper">
             <form>
-                <label>Username </label>
+                <label>Användarnamn </label>
                 <input type="text" name="uname" ref={unameRef} required />
                 {renderErrorMessage("uname")}
-                <label>Password </label>
+                <label>Lösenord </label>
                 <input type="password" name="pass" ref={passRef} required />
                 {renderErrorMessage("pass")}
                 <div>
@@ -74,8 +74,8 @@ const Admin = () => {
 
     const loggedInLinks = (
         <div className="wrapper">
-            <Link to="/AddProducts">Add Products</Link>
-            <Link to="/Users">Add Users</Link>
+            <Link to="/AddProducts">Lägg till produkter</Link>
+            {/* <Link to="/Users">Add Users</Link> */}
             <div>
             <button onClick={handleLogout}>Logga Ut</button>
             </div>

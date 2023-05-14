@@ -19,7 +19,7 @@ function HamburgerMenu() {
             <button onClick={toggleMenu}><GiHamburgerMenu /></button>
             {menuOpen && (
                 <div className="menu-links">
-                    <Link to="/">Home</Link>
+                    <Link to="/">Hem</Link>
                     <Link to="Products">Produkter</Link>
                     <Link to="Admin">Logga in</Link>
                 </div>

@@ -32,8 +32,8 @@ const Cart = () => {
     return (
         <section className="product-card-wrapper" >
             <div>
-                <h2>Cart</h2>
-                <p>Total Price: {totalPrice}</p>
+                <h2>Varukorg</h2>
+                <p>Total Summa: {totalPrice} KR</p>
                 {cart.reduce((acc, product) => {
                     if (!acc.some(item => item.id === product.id)) {
                         acc.push(product);
@@ -52,7 +52,7 @@ const Cart = () => {
                                     <span className="cart-amount">{quantity[product.id] || 1}</span>
                                     <button className="quantity-button" onClick={() => updateQuantity(product.id, 1)}>+</button>
                                 </div>
-                                <button onClick={() => removeItem(product.id)}>Remove from cart</button>
+                                <button onClick={() => removeItem(product.id)}>Ta bort från kundvagnen</button>
                             </div>
                         </li>
                     </ul>

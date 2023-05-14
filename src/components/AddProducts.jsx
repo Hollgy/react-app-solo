@@ -75,10 +75,10 @@ const AddProducts = () => {
                     <input type="text" value={price} onChange={handlePrice} />
                     <label htmlFor="">URL för bild</label>
                     <input type="text" value={picture} onChange={handlePicture} />
-                    <button type="submit">Submit</button>
+                    <button type="submit">Lägg till</button>
                 </form>
             </div>
-            <Link to="/Admin">Back</Link>
+            <Link to="/Admin">Bakåt</Link>
         </section>
     );
 };

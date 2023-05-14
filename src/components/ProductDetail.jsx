@@ -17,7 +17,7 @@ const ProductDetail = () => {
     }
 
     if (!product) {
-        return <p>Product not found</p>;
+        return <p>Vi hittade ingen produkt som matchar, testa ladda om sidan</p>;
     }
 
     return (
@@ -27,7 +27,7 @@ const ProductDetail = () => {
                 <p>{product.description}</p>
                 <p>{product.price}</p>
                 <img src={product.picture} className="product-image" />
-                <button onClick={() => handleAdditionToCart(product)}>Add to cart</button>
+                <button onClick={() => handleAdditionToCart(product)}>Lägg till i kundvagnen</button>
             </div>
         </section>
     );
