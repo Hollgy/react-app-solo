@@ -1,0 +1,17 @@
+.cart-amount{
+    font-size: 130%;
+    border: 1px solid black;
+    padding: 0 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.cart-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 3px solid black;
+    border-radius: 10px;
+    text-align: center;
+}
+

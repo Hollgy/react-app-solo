@@ -16,8 +16,8 @@ const Admin = () => {
     ];
 
     const errors = {
-        uname: "invalid username",
-        pass: "invalid password",
+        uname: "Wrong Credentials ",
+        pass: "Wrong Credentials",
     };
 
     const unameRef = useRef(null);

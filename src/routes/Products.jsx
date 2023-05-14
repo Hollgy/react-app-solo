@@ -8,7 +8,7 @@ const ShowProducts = () => {
     
     return (
         <section>
-            <div className="product wrapper">
+            <div >
             <SearchBar />
             </div>
         </section >

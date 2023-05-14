@@ -2,6 +2,7 @@ import { useRecoilState } from "recoil";
 import { cartState } from "../atoms/cartState";
 import { useState } from "react";
 import "../styles/products.css"
+import "../styles/cart.css"
 
 
 const Cart = () => {
@@ -29,7 +30,7 @@ const Cart = () => {
     }, 0);
 
     return (
-        <section className="product wrapper">
+        <section className="product-card-wrapper" >
             <div>
                 <h2>Cart</h2>
                 <p>Total Price: {totalPrice}</p>
@@ -39,17 +40,18 @@ const Cart = () => {
                     }
                     return acc;
                 }, []).map((product) => (
-                    <ul key={product.id}>
-                        <li className="product-card">
-                            <h4>Produkter</h4>
-                            <p>{product.name}</p>
-                            <p>{product.price}</p>
-                            <p>{product.description}</p>
+                    <ul className="detail-wrapper" key={product.id}>
+                        <li key={product.id} >
+                                <p>{product.name}</p>
+                                <p>{product.price}kr</p>
+                                <p>{product.description}</p>
                             <img className="product-image" src={product.picture} />
                             <div>
-                                <button className="quantity-button" onClick={() => updateQuantity(product.id, -1)}>-</button>
-                                <span>{quantity[product.id] || 1}</span>
-                                <button className="quantity-button" onClick={() => updateQuantity(product.id, 1)}>+</button>
+                                <div>
+                                    <button className="quantity-button" onClick={() => updateQuantity(product.id, -1)}>-</button>
+                                    <span className="cart-amount">{quantity[product.id] || 1}</span>
+                                    <button className="quantity-button" onClick={() => updateQuantity(product.id, 1)}>+</button>
+                                </div>
                                 <button onClick={() => removeItem(product.id)}>Remove from cart</button>
                             </div>
                         </li>

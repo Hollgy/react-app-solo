@@ -5,7 +5,7 @@
 
 a {
     text-decoration: none;
-    /* transition: transform 0.5s ; */
+    transition: transform 0.5s ;
 
 }
 
@@ -23,7 +23,7 @@ b {
 
 body {
     font-size: 100%;
-    background-color: #FBF4E6;
+    background-color: #91C4E4;
 }
 
 header nav {
@@ -49,9 +49,8 @@ header nav a:hover {
 }
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	display: grid;
+	grid-template-columns: 1fr;
     text-align: center;
     margin: 1em auto;
     padding: 1em;
@@ -63,15 +62,16 @@ header nav a:hover {
 }
 
 
-
 .product,
 .start,
 .about {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    align-items: center;
+    width: 80%;
     height: 100%;
     overflow-x: hidden;
+    background-color: white;
 }
 
 form {
@@ -84,27 +84,27 @@ form {
     padding: 1em;
     margin: 10px auto;
 }
-
+/* 
 .form-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 3px solid black;
     width: 50%;
-}
+} */
 
-.text-wrapper {
+/* .text-wrapper {
     display: flex;
     flex-direction: column;
     text-align: center;
-}
-
+} */
+/* 
 .button-wrapper {
     display: flex;
     flex-wrap: wrap;
     width: 125px;
     margin-top: 10px;
-}
+} */
 
 aside {
     display: flex;
@@ -128,12 +128,11 @@ button {
 }
 
 
-li:hover {
+/* li:hover {
     transform: translateY(-10px);
-}
+} */
 
 input {
-    font-size: 150%;
     border: black 3px solid;
     border-radius: 5px;
     margin-bottom: 25px;
@@ -179,7 +178,8 @@ input {
 
 
 .carticon {
-    width: 35px;
+    font-size: 150%;
+    transition: transform 200ms;
 }
 .carticon:hover {
     transform: translateY(-3px);

@@ -1,8 +1,6 @@
 import { useSetRecoilState } from "recoil";
 import { NavLink, Link } from "react-router-dom";
 import { productState } from "../atoms/productAtom";
-import { newProductState } from "../atoms/newProduct";
-import { useEffect } from "react";
 import { useState } from "react";
 import { url, shopId } from "../data/constants"
 

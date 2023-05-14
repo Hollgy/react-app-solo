@@ -45,6 +45,7 @@ const Root = () => {
                     <NavLink to="/Products" className={isMobile ? "invisible" : ""}>
                         Produkter
                     </NavLink>
+                    {isMobile && <h1>Soak City</h1>}
                     <NavLink to="/Admin" className={isMobile ? "invisible" : ""}>
                         Användare
                     </NavLink>
