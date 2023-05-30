@@ -10,25 +10,44 @@ const AddProducts = () => {
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
     const [picture, setPicture] = useState("");
+    const [error, setError] = useState(""); // State to track validation error
+    const [success, SetSuccess] = useState("")
 
-
-    
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newProduct = {
+
+        // Perform validation checks
+        if (name.trim() === "" || price.trim() === "" || description.trim() === "" || picture.trim() === "") {
+            setError("Please fill in all fields.");
+            return;
+        }
+
+        if (name.length < 0 || name.length > 20) {
+            setError("Product Name is too long.");
+            return;
+        }
+
+
+
+        const newProduct =
+
+        {
             name: name,
             description: description,
             price: price,
             picture: picture,
-            shopid: shopId
-        };
-        
-        postNewProduct(newProduct);
+            id: Math.floor(Math.random() * 10000)
+        }
+
+
+
         setProductState((prevProducts) => [...prevProducts, newProduct]);
         setName("");
         setDescription("");
         setPrice("");
         setPicture("");
+        setError("");
+        SetSuccess("Din produkt har adderats!")
     };
 
     const handleName = (e) => {
@@ -47,21 +66,9 @@ const AddProducts = () => {
         setPicture(e.target.value);
     };
 
-    const postNewProduct = async (newProduct) => {
-        try {
-            const response = await fetch(`${url}?action=add-product`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(newProduct),
-            });
-            const data = await response.json();
-            console.log("Data returned:", data);
-        } catch (error) {
-            console.log("Error:", error);
-        }
-    };
+
+
+
 
     return (
         <section>
@@ -70,11 +77,13 @@ const AddProducts = () => {
                     <label htmlFor="">Namn på Produkt</label>
                     <input type="text" value={name} onChange={handleName} />
                     <label htmlFor="">Beskrivning av produkt</label>
-                    <input type="text" value={description} onChange={handleDescription} />
+                    <textarea value={description} onChange={handleDescription} />
                     <label htmlFor="">Produktens Pris</label>
-                    <input type="text" value={price} onChange={handlePrice} />
+                    <input type="number" value={price} onChange={handlePrice} />
                     <label htmlFor="">URL för bild</label>
                     <input type="text" value={picture} onChange={handlePicture} />
+                    {error && <p className="error">{error}</p>} {/* Display error message if there is validation issues */}
+                    {success && <p className="success">{success}</p>} {/* Display success message */}
                     <button type="submit">Lägg till</button>
                 </form>
             </div>

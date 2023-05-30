@@ -28,7 +28,6 @@ const SearchBar = () => {
         setCart([...cart, product]);
         setCartMessage("Din vara har lagts till i varukorgen");
 
-
         setTimeout(() => {
             setCartMessage("");
         }, 500);
@@ -40,52 +39,33 @@ const SearchBar = () => {
         setProducts(updatedProducts)
     }
 
-
-
     return (
         <>
-            <section >
-                <div >
+            <section>
+                <div>
                     <div className="product-header">
                         <h1>Produkter</h1>
-                    <p>{cartMessage}</p>
+                        <p>{cartMessage}</p>
                         <input className="searchbar" type="search" placeholder="Search for a product" onChange={handleInput} value={searchInput} />
                     </div>
                     <ul className="product-card-wrapper">
-                        {searchInput && filteredProducts.length === 0 ? (
+                        {searchInput && filteredProducts.length === 0 && (
                             <p>Vi ber om ursäkt, Vi har ingen produkt som matchar din sökning, försök igen...</p>
-                        ) : (
-                            <>
-                                {searchInput ? (
-                                    filteredProducts.map((product) => (
-                                        <li className="product-card" key={product.id} >
-                                            <Link to={`/product/${product.id}`}>
-                                                <p>{product.name}</p>
-                                                <img className="product-image" src={product.picture} />
-                                            </Link>
-                                            <p>{product.price}kr</p>
-                                            <button onClick={() => handleAdditionToCart(product)}>Lägg till i kundvagnen</button>
-                                            {isLoggedIn && (
-                                                <button onClick={() => handleRemovalOfProduct(product)}>Ta bort produkt</button>
-                                            )}
-                                        </li>
-                                    ))
-                                ) : (
-                                    products.map((product) => (
-                                        <li className="product-card" key={product.id} >
-                                            <Link to={`/product/${product.id}`}>
-                                                <p>{product.name}</p>
-                                                <img className="product-image" src={product.picture} />
-                                            </Link>
-                                            <p>{product.price}kr</p>
-                                            <button onClick={() => handleAdditionToCart(product)}>Lägg till i kundvagnen</button>
-                                            {isLoggedIn && (
-                                                <button onClick={() => handleRemovalOfProduct(product)}>Ta bort produkt</button>
-                                            )}
-                                        </li>
-                                    ))
-                                )}
-                            </>
+                        )}
+                        {(!searchInput || filteredProducts.length > 0) && (
+                            products.map((product) => (
+                                <li className="product-card" key={product.id}>
+                                    <Link to={`/product/${product.id}`}>
+                                        <p>{product.name}</p>
+                                        <img className="product-image" src={product.picture} />
+                                    </Link>
+                                    <p>{product.price}kr</p>
+                                    <button onClick={() => handleAdditionToCart(product)}>Lägg till i kundvagnen</button>
+                                    {isLoggedIn && (
+                                        <button onClick={() => handleRemovalOfProduct(product)}>Ta bort produkt</button>
+                                    )}
+                                </li>
+                            ))
                         )}
                     </ul>
                 </div>
